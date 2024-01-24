@@ -21,7 +21,12 @@ public class Patient_Tc_01_Registration
      	 GenericMethods.Enter_NewUsername(Xpaths.or_Registration_username, "F_NewUsername");
      	 GenericMethods.Enter_NewEmail(Xpaths.or_Registration_Email, "F_NewEmail");
      	 GenericMethods.Enter_NewPassword(Xpaths.or_Registration_password, ReadProperties.GetParameterValue("d_password"));
-     	 GenericMethods.Click_SignUp_Button(Xpaths.or_SignUpButton, Xpaths.or_Header_CodeVerification);
+     	 GenericMethods.Click_SignUp_Button(Xpaths.or_SignUpButton);
+     	 GenericMethods.copy_code_And_Enter_code();
+     	 
+     	 GenericMethods.Click_ConfirmAccount_Button(Xpaths.or_confirmAccountButton);
+     	 
+     	 
      	 
      	 
      	 

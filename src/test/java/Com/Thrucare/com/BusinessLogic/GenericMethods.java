@@ -32,6 +32,7 @@ public class GenericMethods
     	 try {
         	 SmallMethods.url(APPurl);
         	 SmallMethods.VerifiedText(Xpaths.or_Home,ReadProperties.GetParameterValue("d_Home"));
+        	 
         	 }catch(Exception e)
         	 {
         		 
@@ -47,7 +48,7 @@ public class GenericMethods
     	 if(xpath!=null)
     	 {
     	    SmallMethods.Click_AnyButton(xpath);
-    	    SmallMethods.VerifiedText(Xpaths.or_patient_Text, ReadProperties.GetParameterValue("d_patient"));
+    	  
     	    SmallMethods.VerifiedText(Xpaths.or_provider_Text,ReadProperties.GetParameterValue("d_provider"));
     	    
     	 }
@@ -62,7 +63,7 @@ public class GenericMethods
     	 if(xpath!=null)
     	 {
     	    SmallMethods.Click_AnyButton(xpath);
-    	    SmallMethods.VerifiedText(Xpaths.or_socialAccount_Text, ReadProperties.GetParameterValue("d_SocialAccont"));
+    	   
     	    SmallMethods.VerifiedText(Xpaths.or_UserAccount_Text,  ReadProperties.GetParameterValue("d_UserAccont"));
     	   
     	  }
@@ -102,10 +103,42 @@ public class GenericMethods
      }
      
      
-     public static void Click_SignUp_Button(String xpath,String xpath1) throws IOException
+     
+     
+     
+     public static void Click_SignUp_Button(String xpath) throws IOException
      {
     	 SmallMethods.Click_AnyButton(xpath);
-    	 SmallMethods.ExplicitWait_wth_condition(20, xpath1);
+    	 SmallMethods.ExplicitWait_wth_condition(20, Xpaths.or_Header_CodeVerification);
+    	
+    	 
+    	 
+     }
+   
+     
+     
+    
+     
+     public static void copy_code_And_Enter_code() throws IOException
+     {
+    	 SmallMethods.switchwindow();
+    	 SmallMethods.url(ReadProperties.GetParameterValue("d_YopmailURL"));
+    	 SmallMethods.Senddata(Xpaths.or_InputYopmailField, ReadProperties.GetParameterValue("F_NewEmail"));
+    	 SmallMethods.Click_AnyButton(Xpaths.or_NextButton);
+    	 SmallMethods.Click_AnyButton(Xpaths.or_RefreshButton);
+    	 SmallMethods.Getcode();
+    	 SmallMethods.switchBack();
+    	 SmallMethods.Senddata(Xpaths.or_VerificationCode, SmallMethods.verificationCode);
+     }
+     
+     
+     
+     
+     
+     public static void Click_ConfirmAccount_Button(String xpath)
+     {
+    	 SmallMethods.Click_AnyButton(xpath);
+    	 SmallMethods.ExplicitWait_wth_condition(20, Xpaths.or_Header_PatientRegistration);
      }
      
      

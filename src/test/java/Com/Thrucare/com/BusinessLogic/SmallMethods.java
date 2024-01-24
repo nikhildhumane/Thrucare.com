@@ -43,41 +43,30 @@ public class SmallMethods
 	        {
 	            case Calendar.MONDAY:
 	            	
-	            	WebDriverManager.firefoxdriver().setup();
-	            	driver = new FirefoxDriver();
-//	            	WebDriverManager.edgedriver().setup();
-//	            	BaseClass.driver = new EdgeDriver();
-//	        		
-//	        		
+	            	WebDriverManager.chromedriver().setup();
+	            	  driver = new ChromeDriver(); 		
                   break;
 	                
 	            case Calendar.TUESDAY:
 	            
-	            	WebDriverManager.firefoxdriver().setup();
-	            	driver = new FirefoxDriver();
-	            	
+	            	WebDriverManager.chromedriver().setup();
+	            	  driver = new ChromeDriver();
 	                break;
 	                
 	            case Calendar.WEDNESDAY:
-	            	WebDriverManager.firefoxdriver().setup();
-	            	driver = new FirefoxDriver();
+	            	WebDriverManager.chromedriver().setup();
+	            	  driver = new ChromeDriver();
 	            
 	            	break;
 	            	
 	            case Calendar.THURSDAY:
-	            	WebDriverManager.firefoxdriver().setup();
-	                driver = new FirefoxDriver();
-//	            	WebDriverManager.iedriver().setup();
-//	            	driver=new InternetExplorerDriver();
-	            	
+	            	WebDriverManager.chromedriver().setup();
+	            	  driver = new ChromeDriver();
 	            	break; 
 	            	
 	            case Calendar.FRIDAY:
-	            	
-//	            	WebDriverManager.chromedriver().setup();
-//	            	driver = new ChromeDriver();
-	            	WebDriverManager.firefoxdriver().setup();
-	                driver = new FirefoxDriver();
+	            	WebDriverManager.chromedriver().setup();
+	            	  driver = new ChromeDriver();
 	        		
 	                break;
 	                
@@ -116,6 +105,7 @@ public class SmallMethods
 		 if(url!=null)
 		 {
 		     driver.get(url);
+		     driver.manage().window().maximize();
 		     Assert.assertTrue(true);
 		 }
 	 }
@@ -154,6 +144,7 @@ public class SmallMethods
 		if(xpath!=null)
 		{
 		   driver.findElement(By.xpath(xpath)).click();
+		   
 		   Assert.assertTrue(true);
 		}
 	}
@@ -489,9 +480,9 @@ public class SmallMethods
 	 public static void Getcode()
 	 {
 		
-		
+		     
             driver.switchTo().frame("ifinbox");
-		    List<WebElement> yopmailElements = driver.findElements(By.xpath(Xpaths.or_YopmailList));
+		    List<WebElement> yopmailElements = driver.findElements(By.xpath(Xpaths.or_mailList));
 		    int size=yopmailElements.size();
 		   
 
@@ -509,7 +500,7 @@ public class SmallMethods
 		            driver.manage().timeouts().implicitlyWait(25,TimeUnit.SECONDS);
 		            driver.switchTo().frame("ifmail");
                      
-		            WebElement emailContentElement = driver.findElement(By.xpath(Xpaths.or_emailContent));
+		            WebElement emailContentElement = driver.findElement(By.xpath(Xpaths.or_mailContent));
 		            String emailContent = emailContentElement.getText();
 
 		            
@@ -519,6 +510,7 @@ public class SmallMethods
 		          
 		            
 		            ReadProperties.SaveValueToPropertyFile("verificationCode", verificationCode);
+		            Assert.assertTrue(true);
 
 		            break;
 		        }

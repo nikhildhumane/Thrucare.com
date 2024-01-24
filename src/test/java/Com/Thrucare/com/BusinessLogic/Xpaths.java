@@ -42,6 +42,10 @@ public class Xpaths
     public static String or_SignUpButton="(//button[@name='signUpButton'][normalize-space()='Sign up'])[1]";
     
     
+
+/*==========================patient Registration page==================================================================*/
+    
+    public static String or_Header_PatientRegistration="//div[@class='intro-div']";
     
     
     
@@ -51,8 +55,8 @@ public class Xpaths
 /*================================ Verification page ===================================================================*/	        
         
    public static String or_Header_CodeVerification="//h3[normalize-space()='Confirm your account']" ;
-   
-    
+   public static String or_VerificationCode="//input[@id='verification_code']";
+   public static String or_confirmAccountButton="//button[normalize-space()='Confirm account']" ;
     
    
    
@@ -63,7 +67,9 @@ public class Xpaths
    
    public static String or_InputYopmailField="//input[@id='login']";
    public static String or_NextButton="//i[@class='material-icons-outlined f36']";
-   
+   public static String or_RefreshButton="//button[@id='refresh']";
+   public static String or_mailList="//div[@class='m']";
+   public static String or_mailContent="//div[@id='mail']";
     
  /*=========================================Dashboard===================================================================*/
     
